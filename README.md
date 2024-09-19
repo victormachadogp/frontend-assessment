@@ -12,10 +12,9 @@ Que tenha um excelente desenvolvimento :wink:
 > Voce deverá desenvolver um SPA ou Aplicação responsiva usando o framework Vue.js e qualquer pacote de componentes que desejar.
 > Calculadoras de gorjeta existem aos montes nas principais lojas de aplicativos. Você insere o total da conta, o quanto quer dar de gorjeta e quantas pessoas vão dividir a conta.
 > O total da conta pode ser em USD(Dólar) ou EUR(Euro).
-> Deve ser exibido a conversão para BRL(R$), obtida via chamada (REST ou GraphQL)
+> Deve ser exibido a conversão para BRL(R$), obtida via chamada (REST)
 
 Dica: você pode usar qualquer API gratuita para obter a conversão de moedas, como o [SWOP](https://swop.cx/).
-Também disponibilizamos uma aplicação de [API GraphQL de conversão de moedas](https://gitlab.com/convenia/assessments/currency-conversion), caso opte por implementar a integração via GraphQL.
 
 ### User Story
 
@@ -107,7 +106,6 @@ De maneira que estas informações alimentem meu sistema pessoal
 ### Considerações
 
 * Como pode perceber, não há um botão "calcular", todos cálculos devem ser reativos
-* Apesar de estar aberto a REST, preferimos GraphQL 😉
 * Apreciamos o uso de alguma metodológia CSS (BEM, RSCSS, ou qualquer outra) 
 * Avaliaremos como organizará a requisição para conversão de moeda
 * A partir do apresentado, você pode incrementar a aplicação como quiser
