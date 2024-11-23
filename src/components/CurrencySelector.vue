@@ -4,17 +4,23 @@
       Moeda:
       <select
         :value="modelValue"
-        @input="$emit('update:modelValue', $event.target.value)"
+        @change="$emit('update:modelValue', $event.target.value)"
         class="currency-selector__select"
       >
-        <option value="USD">USD ($)</option>
-        <option value="EUR">EUR (€)</option>
+        <option v-for="currency in currencies" :key="currency.value" :value="currency.value">
+          {{ currency.label }}
+        </option>
       </select>
     </label>
   </div>
 </template>
 
 <script setup>
+const currencies = [
+  { value: 'USD', label: 'USD ($)' },
+  { value: 'EUR', label: 'EUR (€)' },
+]
+
 defineProps({
   modelValue: {
     type: String,
