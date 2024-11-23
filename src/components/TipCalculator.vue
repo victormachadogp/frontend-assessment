@@ -17,7 +17,7 @@
       </label>
     </div>
 
-    <RangeField />
+    <RangeInput />
 
     <ResultsPanel />
   </div>
@@ -27,7 +27,7 @@
 import { ref, computed, watch } from 'vue'
 
 import CurrencySelector from './CurrencySelector.vue'
-import RangeField from './RangeField.vue'
+import RangeInput from './RangeInput.vue'
 import ResultsPanel from './ResultsPanel.vue'
 
 const billTotal = ref(0)
