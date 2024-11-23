@@ -27,7 +27,13 @@
       class="tip-calculator__range"
     />
 
-    <ResultsPanel />
+    <ResultsPanel
+      :bill-total="billTotal"
+      :tip-amount="tipAmount"
+      :total-with-tip="totalWithTip"
+      :people-count="peopleCount"
+      :selected-currency="selectedCurrency"
+    />
   </div>
 </template>
 
@@ -54,4 +60,12 @@ const rangeInputs = ref([
     max: 16,
   },
 ])
+
+// Computed properties para acessar os valores específicos
+const tipPercentage = computed(() => rangeInputs.value[0].value)
+const peopleCount = computed(() => rangeInputs.value[1].value)
+
+// Cálculos
+const tipAmount = computed(() => billTotal.value * (tipPercentage.value / 100))
+const totalWithTip = computed(() => billTotal.value + tipAmount.value)
 </script>
