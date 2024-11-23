@@ -20,11 +20,11 @@
     <RangeInput
       v-for="(input, index) in rangeInputs"
       :key="index"
+      v-model="input.value"
       :label="input.label"
-      :value="input.value"
       :min="input.min"
       :max="input.max"
-      @update="(newValue) => updateValue(index, newValue)"
+      class="tip-calculator__range"
     />
 
     <ResultsPanel />
@@ -33,25 +33,25 @@
 
 <script setup>
 import { ref, computed, watch } from 'vue'
-
 import CurrencySelector from './CurrencySelector.vue'
 import RangeInput from './RangeInput.vue'
 import ResultsPanel from './ResultsPanel.vue'
 
 const billTotal = ref(0)
-const tipPercentage = ref(10)
-const peopleCount = ref(2)
 const selectedCurrency = ref('USD')
 
-// Dados dinâmicos
 const rangeInputs = ref([
-  { label: 'Tip', value: 10, min: 10, max: 20 },
-  { label: 'Number of People', value: 2, min: 2, max: 16 },
+  {
+    label: 'Gorjeta',
+    value: 10,
+    min: 10,
+    max: 20,
+  },
+  {
+    label: 'Número de Pessoas',
+    value: 2,
+    min: 2,
+    max: 16,
+  },
 ])
-
-const updateValue = (index, newValue) => {
-  rangeInputs.value[index].value = newValue
-}
 </script>
-
-<style></style>

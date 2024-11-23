@@ -1,23 +1,34 @@
 <template>
   <div class="input-range">
-    <label :for="id" class="input-range__label">{{ label }}</label>
-    <input
-      type="range"
-      :id="id"
-      :min="min"
-      :max="max"
-      :value="value"
-      @input="$emit('update', +$event.target.value)"
-    />
-    <span class="input-range__value">{{ value }}</span>
+    <label :for="inputId" class="input-range__label"> {{ label }} ({{ modelValue }}) </label>
+
+    <div class="input-range__container">
+      <input
+        type="range"
+        :min="min"
+        :max="max"
+        :step="step"
+        :value="modelValue"
+        @input="handleInput"
+        class="input-range__slider"
+      />
+
+      <div class="input-range__values">
+        <span class="input-range__min">{{ min }}</span>
+        <span class="input-range__max">{{ max }}</span>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup>
-defineProps({
-  label: String,
-  value: {
+const props = defineProps({
+  modelValue: {
     type: Number,
+    required: true,
+  },
+  label: {
+    type: String,
     required: true,
   },
   min: {
@@ -28,10 +39,17 @@ defineProps({
     type: Number,
     default: 100,
   },
-  id: String,
+  step: {
+    type: Number,
+    default: 1,
+  },
 })
 
-defineEmits(['update'])
+const emit = defineEmits(['update:modelValue'])
+
+const handleInput = (event) => {
+  emit('update:modelValue', Number(event.target.value))
+}
 </script>
 
 <style scoped>
