@@ -1,5 +1,9 @@
-<script setup></script>
+<script setup>
+import TipCalculator from './components/TipCalculator.vue'
+</script>
 
-<template></template>
+<template>
+  <TipCalculator />
+</template>
 
 <style scoped></style>
