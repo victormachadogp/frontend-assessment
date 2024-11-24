@@ -6,13 +6,7 @@
       <div class="tip-calculator__bill-input">
         <label class="tip-calculator__label">
           Total da Conta ({{ selectedCurrency }})
-          <input
-            type="number"
-            v-model.number="billTotal"
-            min="0"
-            step="0.01"
-            class="tip-calculator__input"
-          />
+          <input v-model.number="billTotal" min="0" step="0.01" class="tip-calculator__input" />
         </label>
       </div>
 
@@ -109,17 +103,6 @@ onBeforeUnmount(() => window.removeEventListener('resize', handleResize))
   border: 1px solid #e5e7eb;
   border-radius: 0.75rem;
 
-  &__input-section {
-    display: block;
-    transition: opacity 0.3s ease;
-
-    @media (max-width: 768px) {
-      &--hidden {
-        display: none;
-      }
-    }
-  }
-
   &__title {
     font-size: 1.5rem;
     font-weight: bold;
@@ -145,7 +128,7 @@ onBeforeUnmount(() => window.removeEventListener('resize', handleResize))
   &__input {
     display: block;
     align-self: flex-start;
-    padding: 0.4rem 0.75rem;
+    padding: 0.325rem 0.75rem;
     border: 1px solid #d1d5db;
     border-radius: 0.375rem;
     font-size: 1rem;
