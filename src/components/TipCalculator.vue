@@ -2,7 +2,7 @@
   <div class="tip-calculator">
     <h1 class="tip-calculator__title">Calculadora de Gorjetas</h1>
 
-    <CurrencySelector v-model="selectedCurrency" class="tip-calculator__currency-selector" />
+    <CurrencySelector v-model="selectedCurrency" />
 
     <div class="tip-calculator__bill-input">
       <label class="tip-calculator__label">
@@ -74,7 +74,8 @@ const totalWithTip = computed(() => billTotal.value + tipAmount.value)
 .tip-calculator {
   max-width: 600px;
   margin: 0 auto;
-  padding: 2rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
 
   &__title {
     font-size: 1.5rem;
@@ -82,14 +83,12 @@ const totalWithTip = computed(() => billTotal.value + tipAmount.value)
     color: #333;
     margin-bottom: 1.5rem;
     text-align: center;
-  }
-
-  &__currency-selector {
-    margin-bottom: 1.5rem;
+    padding: 0 2rem;
   }
 
   &__bill-input {
     margin-bottom: 1.5rem;
+    padding: 0 2rem;
   }
 
   &__label {

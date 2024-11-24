@@ -1,7 +1,7 @@
 <template>
   <div class="result-item">
-    <span>{{ label }}:</span>
-    <strong>{{ formattedValue }}</strong>
+    <span class="result-item__label">{{ label }}</span>
+    <strong class="result-item__value">{{ formattedValue }}</strong>
   </div>
 </template>
 
@@ -30,3 +30,17 @@ const formattedValue = computed(() => {
   }).format(props.value)
 })
 </script>
+
+<style lang="scss">
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+
+  &:last-of-type {
+    border-top: 1px solid #ccc;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+  }
+}
+</style>

@@ -37,8 +37,11 @@ defineEmits(['update:modelValue'])
 .currency-selector {
   &__label {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     gap: 0.5rem;
+    font-weight: 500;
+    padding: 0 2rem;
+    margin-bottom: 1.5rem;
   }
 
   &__toggle {
@@ -46,6 +49,7 @@ defineEmits(['update:modelValue'])
     background-color: #f0f0f0;
     padding: 0.25rem;
     border-radius: 0.5rem;
+    align-self: flex-start;
   }
 
   &__toggle-button {

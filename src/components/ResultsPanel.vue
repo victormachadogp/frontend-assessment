@@ -66,3 +66,12 @@ const resultItems = computed(() => [
   },
 ])
 </script>
+
+<style lang="scss">
+.results-panel {
+  background-color: #f9fafb;
+  padding: 2rem;
+  border-bottom-left-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+}
+</style>
