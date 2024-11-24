@@ -69,3 +69,52 @@ const peopleCount = computed(() => rangeInputs.value[1].value)
 const tipAmount = computed(() => billTotal.value * (tipPercentage.value / 100))
 const totalWithTip = computed(() => billTotal.value + tipAmount.value)
 </script>
+
+<style lang="scss" scoped>
+.tip-calculator {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  &__currency-selector {
+    margin-bottom: 1.5rem;
+  }
+
+  &__bill-input {
+    margin-bottom: 1.5rem;
+  }
+
+  &__label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+
+  &__input {
+    display: block;
+    align-self: flex-start;
+    padding: 0.4rem 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    transition: border-color 0.15s ease-in-out;
+
+    &:focus {
+      outline: none;
+      border-color: #4f46e5;
+      box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+    }
+  }
+}
+</style>
