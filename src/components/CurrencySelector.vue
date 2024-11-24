@@ -40,7 +40,7 @@ defineEmits(['update:modelValue'])
     flex-direction: column;
     gap: 0.5rem;
     font-weight: 500;
-    padding: 0 2rem;
+    padding: 2rem 2rem 0 2rem;
     margin-bottom: 1.5rem;
   }
 

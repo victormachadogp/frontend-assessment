@@ -1,7 +1,5 @@
 <template>
   <div class="tip-calculator">
-    <h1 class="tip-calculator__title">Calculadora de Gorjetas</h1>
-
     <CurrencySelector v-model="selectedCurrency" />
 
     <div class="tip-calculator__bill-input">
