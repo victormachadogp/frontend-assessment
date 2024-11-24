@@ -73,5 +73,10 @@ const resultItems = computed(() => [
   padding: 2rem;
   border-bottom-left-radius: 0.75rem;
   border-bottom-right-radius: 0.75rem;
+
+  @media (max-width: 768px) {
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+  }
 }
 </style>
