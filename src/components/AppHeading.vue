@@ -1,13 +1,13 @@
 <template>
-  <div class="header">
-    <span class="header__title"><slot></slot></span>
+  <div class="heading">
+    <span class="heading__title"><slot></slot></span>
   </div>
 </template>
 
 <script setup></script>
 
 <style lang="scss">
-.header {
+.heading {
   background-color: #f9fafb;
   padding: 0.75rem 2rem;
   border-bottom: 1px solid #cccccc82;
