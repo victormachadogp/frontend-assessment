@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <h2 class="header__title">Calculadora de Gorjeta</h2>
+    <span class="header__title"><slot></slot></span>
   </div>
 </template>
 

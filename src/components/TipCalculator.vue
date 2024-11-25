@@ -1,6 +1,6 @@
 <template>
   <div class="tip-calculator">
-    <AppHeader />
+    <AppHeading> Calculadora de Gorjeta </AppHeading>
     <div class="tip-calculator__input-section" v-show="!isMobile || !showResultsPanel">
       <CurrencySelector v-model="selectedCurrency" />
 
@@ -58,7 +58,7 @@
 
 <script setup>
 import { ref, computed, watch, onMounted, onBeforeUnmount } from 'vue'
-import AppHeader from './AppHeader.vue'
+import AppHeading from './AppHeading.vue'
 import CurrencySelector from './CurrencySelector.vue'
 import RangeInput from './RangeInput.vue'
 import ResultsPanel from './ResultsPanel.vue'
