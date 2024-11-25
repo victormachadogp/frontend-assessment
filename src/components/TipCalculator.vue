@@ -3,11 +3,22 @@
     <div class="tip-calculator__input-section" v-show="!isMobile || !showResultsPanel">
       <CurrencySelector v-model="selectedCurrency" />
 
-      <div class="tip-calculator__bill-input">
-        <label class="tip-calculator__label">
-          Total da Conta ({{ selectedCurrency }})
-          <input v-model.number="billTotal" min="0" step="0.01" class="tip-calculator__input" />
-        </label>
+      <div class="tip-calculator__bill">
+        <label class="tip-calculator__bill-label"> Total da Conta </label>
+        <div class="tip-calculator__bill-input-wrapper">
+          <div class="tip-calculator__currency-sign">
+            <span>{{ selectedCurrencySign }}</span>
+          </div>
+          <input
+            v-model.number="billTotal"
+            min="0"
+            step="0.01"
+            class="tip-calculator__bill-input"
+          />
+          <div class="tip-calculator__currency-code">
+            <span class="span-something"> {{ selectedCurrency }} </span>
+          </div>
+        </div>
       </div>
 
       <RangeInput
@@ -70,6 +81,8 @@ const rangeInputs = ref([
   },
 ])
 
+const selectedCurrencySign = computed(() => (selectedCurrency.value === 'USD' ? '$' : '€'))
+
 // Computed properties para acessar os valores específicos
 const tipPercentage = computed(() => rangeInputs.value[0].value)
 const peopleCount = computed(() => rangeInputs.value[1].value)
@@ -112,33 +125,68 @@ onBeforeUnmount(() => window.removeEventListener('resize', handleResize))
     padding: 0 2rem;
   }
 
-  &__bill-input {
+  &__bill {
     margin-bottom: 1.5rem;
     padding: 0 2rem;
-  }
 
-  &__label {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-  }
+    &-label {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
 
-  &__input {
-    display: block;
-    align-self: flex-start;
-    padding: 0.325rem 0.75rem;
-    border: 1px solid #d1d5db;
-    border-radius: 0.375rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    transition: border-color 0.15s ease-in-out;
+    &-input-wrapper {
+      position: relative;
+      justify-self: flex-start;
 
-    &:focus {
-      outline: none;
-      border-color: #4f46e5;
-      box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+      & > .tip-calculator__currency-sign {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        padding-left: 0.75rem;
+
+        span {
+          color: #6b7280;
+          line-height: 1.25rem;
+        }
+      }
+
+      & > .tip-calculator__currency-code {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        padding-left: 0.75rem;
+
+        span {
+          color: #6b7280;
+          padding-right: 0.75rem;
+          line-height: 1.25rem;
+        }
+      }
+
+      & > .tip-calculator__bill-input {
+        display: block;
+        align-self: flex-start;
+        padding: 0.42rem 3rem 0.42rem 1.75rem;
+        border: 1px solid #d1d5db;
+        border-radius: 0.375rem;
+        font-size: 0.875rem;
+        line-height: 1.5;
+        transition: border-color 0.15s ease-in-out;
+
+        &:focus {
+          outline: none;
+          border-color: $primary-color;
+        }
+      }
     }
   }
 
