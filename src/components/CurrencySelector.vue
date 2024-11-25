@@ -46,8 +46,8 @@ defineEmits(['update:modelValue'])
 
   &__toggle {
     display: inline-flex;
-    background-color: #f0f0f0;
-    padding: 0.25rem;
+    background-color: #f1f5f9;
+    padding: 0.125rem;
     border-radius: 0.5rem;
     align-self: flex-start;
   }
@@ -62,13 +62,15 @@ defineEmits(['update:modelValue'])
 
     &:not(&--active) {
       &:hover {
-        background-color: rgba(0, 0, 0, 0.05);
+        background-color: rgb(230 230 230 / 28%);
       }
     }
 
     &--active {
       background-color: #fff;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      box-shadow:
+        0 1px 3px 0 rgb(0 0 0 / 0.1),
+        0 1px 2px -1px rgb(0 0 0 / 0.1);
     }
   }
 }
