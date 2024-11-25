@@ -113,33 +113,8 @@ onBeforeUnmount(() => window.removeEventListener('resize', handleResize))
     padding: 0 2rem;
   }
 
-  &__toggle-button {
-    display: none;
-    position: fixed;
-    background-color: $primary-color;
-    color: white;
-    border: 1px solid $primary-color;
-    border-radius: 50%;
-    padding: 0.7rem 1rem;
-    font-size: 1.2rem;
-    cursor: pointer;
-    position: fixed;
-    bottom: 1.25rem;
-    right: 1.25rem;
-    z-index: 1000;
-
-    &:hover {
-      background-color: darken($primary-color, 10%);
-    }
-  }
-
   @media (max-width: 768px) {
     min-width: auto;
-
-    &__toggle-button {
-      display: block;
-      margin: 1rem 0;
-    }
   }
 }
 </style>
