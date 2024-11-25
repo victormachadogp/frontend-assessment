@@ -1,5 +1,6 @@
 <template>
   <div class="tip-calculator">
+    <AppHeader />
     <div class="tip-calculator__input-section" v-show="!isMobile || !showResultsPanel">
       <CurrencySelector v-model="selectedCurrency" />
 
@@ -57,6 +58,7 @@
 
 <script setup>
 import { ref, computed, watch, onMounted, onBeforeUnmount } from 'vue'
+import AppHeader from './AppHeader.vue'
 import CurrencySelector from './CurrencySelector.vue'
 import RangeInput from './RangeInput.vue'
 import ResultsPanel from './ResultsPanel.vue'
@@ -115,6 +117,9 @@ onBeforeUnmount(() => window.removeEventListener('resize', handleResize))
   margin: 0 auto;
   border: 1px solid #e5e7eb;
   border-radius: 0.75rem;
+  box-shadow:
+    0 1px 3px 0 rgb(0 0 0 / 0.1),
+    0 1px 2px -1px rgb(0 0 0 / 0.1);
 
   &__title {
     font-size: 1.5rem;
