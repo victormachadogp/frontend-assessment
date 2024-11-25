@@ -11,7 +11,6 @@
         type="range"
         :min="min"
         :max="max"
-        :step="step"
         :value="modelValue"
         @input="handleInput"
         class="input-range__slider"
