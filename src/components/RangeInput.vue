@@ -1,6 +1,10 @@
 <template>
   <div class="input-range">
-    <label class="input-range__label"> {{ label }} ({{ modelValue }}) </label>
+    <label class="input-range__label">
+      {{ label }}
+      <span v-if="formatType === 'percentage'">({{ modelValue }}%)</span>
+      <span v-else-if="formatType === 'number'">({{ modelValue }})</span>
+    </label>
 
     <div class="input-range__container">
       <input
@@ -39,9 +43,10 @@ const props = defineProps({
     type: Number,
     default: 100,
   },
-  step: {
-    type: Number,
-    default: 1,
+  formatType: {
+    type: String,
+    default: 'number', // 'number' | 'percentage'
+    validator: (value) => ['number', 'percentage'].includes(value),
   },
 })
 
@@ -65,6 +70,11 @@ const handleInput = (event) => {
     margin-bottom: 0.5rem;
     font-weight: 500;
     color: #333;
+
+    span {
+      font-weight: 500;
+      color: #333;
+    }
   }
 
   &__container {

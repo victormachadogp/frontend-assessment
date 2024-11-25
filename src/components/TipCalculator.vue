@@ -11,12 +11,19 @@
       />
 
       <RangeInput
-        v-for="(input, index) in rangeInputs"
-        :key="index"
-        v-model="input.value"
-        :label="input.label"
-        :min="input.min"
-        :max="input.max"
+        v-model="tipPercentage"
+        label="Gorjeta"
+        :min="10"
+        :max="20"
+        format-type="percentage"
+      />
+
+      <RangeInput
+        v-model="peopleCount"
+        label="Número de Pessoas"
+        :min="2"
+        :max="16"
+        format-type="number"
       />
     </div>
 
@@ -50,27 +57,10 @@ const billTotal = ref(0)
 const selectedCurrency = ref('USD')
 const isMobile = ref(window.innerWidth <= 768)
 const showResultsPanel = ref(false)
-
-const rangeInputs = ref([
-  {
-    label: 'Gorjeta',
-    value: 10,
-    min: 10,
-    max: 20,
-  },
-  {
-    label: 'Número de Pessoas',
-    value: 2,
-    min: 2,
-    max: 16,
-  },
-])
+const tipPercentage = ref(10)
+const peopleCount = ref(2)
 
 const selectedCurrencySign = computed(() => (selectedCurrency.value === 'USD' ? '$' : '€'))
-
-// Computed properties para acessar os valores específicos
-const tipPercentage = computed(() => rangeInputs.value[0].value)
-const peopleCount = computed(() => rangeInputs.value[1].value)
 
 // Cálculos
 const tipAmount = computed(() => billTotal.value * (tipPercentage.value / 100))
