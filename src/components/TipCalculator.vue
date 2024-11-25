@@ -85,11 +85,13 @@ onBeforeUnmount(() => window.removeEventListener('resize', handleResize))
 <style lang="scss">
 .tip-calculator {
   $primary-color: #820be0;
-  max-width: 600px;
+  background-color: white;
+  max-width: 500px;
   min-width: 400px;
   margin: 0 auto;
   border: 1px solid #e5e7eb;
   border-radius: 0.75rem;
+  height: fit-content;
   box-shadow:
     0 1px 3px 0 rgb(0 0 0 / 0.1),
     0 1px 2px -1px rgb(0 0 0 / 0.1);
