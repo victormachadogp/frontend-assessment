@@ -17,20 +17,14 @@
         :label="input.label"
         :min="input.min"
         :max="input.max"
-        class="tip-calculator__range"
       />
     </div>
 
-    <div class="tip-calculator__toggle">
-      <button
-        class="tip-calculator__toggle-button"
-        @click="toggleResultsPanel"
-        v-show="isMobile"
-        :aria-label="showResultsPanel ? 'Voltar para calculadora' : 'Ver resultados'"
-      >
-        {{ showResultsPanel ? '<' : '>' }}
-      </button>
-    </div>
+    <FloatButton
+      v-show="isMobile"
+      :is-showing-results="showResultsPanel"
+      @toggle="toggleResultsPanel"
+    />
 
     <ResultsPanel
       v-show="!isMobile || showResultsPanel"
@@ -39,7 +33,6 @@
       :total-with-tip="totalWithTip"
       :people-count="peopleCount"
       :selected-currency="selectedCurrency"
-      class="tip-calculator__results"
     />
   </div>
 </template>
@@ -50,6 +43,7 @@ import AppHeading from './AppHeading.vue'
 import CurrencySelector from './CurrencySelector.vue'
 import CurrencyInput from './CurrencyInput.vue'
 import RangeInput from './RangeInput.vue'
+import FloatButton from './FloatButton.vue'
 import ResultsPanel from './ResultsPanel.vue'
 
 const billTotal = ref(0)
