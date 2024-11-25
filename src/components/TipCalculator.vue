@@ -4,23 +4,11 @@
     <div class="tip-calculator__input-section" v-show="!isMobile || !showResultsPanel">
       <CurrencySelector v-model="selectedCurrency" />
 
-      <div class="tip-calculator__bill">
-        <label class="tip-calculator__bill-label"> Total da Conta </label>
-        <div class="tip-calculator__bill-input-wrapper">
-          <div class="tip-calculator__currency-sign">
-            <span>{{ selectedCurrencySign }}</span>
-          </div>
-          <input
-            v-model.number="billTotal"
-            min="0"
-            step="0.01"
-            class="tip-calculator__bill-input"
-          />
-          <div class="tip-calculator__currency-code">
-            <span class="span-something"> {{ selectedCurrency }} </span>
-          </div>
-        </div>
-      </div>
+      <CurrencyInput
+        v-model="billTotal"
+        :currency="selectedCurrency"
+        :currency-sign="selectedCurrencySign"
+      />
 
       <RangeInput
         v-for="(input, index) in rangeInputs"
@@ -60,6 +48,7 @@
 import { ref, computed, watch, onMounted, onBeforeUnmount } from 'vue'
 import AppHeading from './AppHeading.vue'
 import CurrencySelector from './CurrencySelector.vue'
+import CurrencyInput from './CurrencyInput.vue'
 import RangeInput from './RangeInput.vue'
 import ResultsPanel from './ResultsPanel.vue'
 
@@ -128,71 +117,6 @@ onBeforeUnmount(() => window.removeEventListener('resize', handleResize))
     margin-bottom: 1.5rem;
     text-align: center;
     padding: 0 2rem;
-  }
-
-  &__bill {
-    margin-bottom: 1.5rem;
-    padding: 0 2rem;
-
-    &-label {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      margin-bottom: 0.5rem;
-      font-weight: 500;
-    }
-
-    &-input-wrapper {
-      position: relative;
-      justify-self: flex-start;
-
-      & > .tip-calculator__currency-sign {
-        position: absolute;
-        display: flex;
-        align-items: center;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        padding-left: 0.75rem;
-
-        span {
-          color: #6b7280;
-          line-height: 1.25rem;
-        }
-      }
-
-      & > .tip-calculator__currency-code {
-        position: absolute;
-        display: flex;
-        align-items: center;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        padding-left: 0.75rem;
-
-        span {
-          color: #6b7280;
-          padding-right: 0.75rem;
-          line-height: 1.25rem;
-        }
-      }
-
-      & > .tip-calculator__bill-input {
-        display: block;
-        align-self: flex-start;
-        padding: 0.42rem 3rem 0.42rem 1.75rem;
-        border: 1px solid #d1d5db;
-        border-radius: 0.375rem;
-        font-size: 0.875rem;
-        line-height: 1.5;
-        transition: border-color 0.15s ease-in-out;
-
-        &:focus {
-          outline: none;
-          border-color: $primary-color;
-        }
-      }
-    }
   }
 
   &__toggle-button {
