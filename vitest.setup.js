@@ -1,3 +1,6 @@
 import { config } from '@vue/test-utils'
 
-config.global.stubs = {}
+config.global.stubs = {
+  // Isole e evite efeitos colaterais dos componentes
+  CurrencySelector: true,
+}
