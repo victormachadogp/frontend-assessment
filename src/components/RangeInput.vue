@@ -57,6 +57,8 @@ const handleInput = (event) => {
 </script>
 
 <style lang="scss" scoped>
+@use 'sass:color';
+
 .input-range {
   $primary-color: #820be0;
   $secondary-color: #f1f1f1;
@@ -108,7 +110,7 @@ const handleInput = (event) => {
       transition: background-color 0.2s ease;
 
       &:hover {
-        background: darken($primary-color, 10%);
+        background: color.adjust($primary-color, $lightness: -10%);
       }
 
       &:active {
@@ -126,7 +128,7 @@ const handleInput = (event) => {
       transition: background-color 0.2s ease;
 
       &:hover {
-        background: darken($primary-color, 10%);
+        background: color.adjust($primary-color, $lightness: -10%);
       }
 
       &:active {

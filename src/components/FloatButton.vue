@@ -45,8 +45,10 @@ const ariaLabel = computed(() =>
 </script>
 
 <style lang="scss">
+@use 'sass:color';
+
 $primary-color: #820be0;
-$hover-color: darken($primary-color, 10%);
+$hover-color: color.adjust($primary-color, $lightness: -10%);
 $border-radius: 50%;
 $transition-speed: 0.3s;
 
