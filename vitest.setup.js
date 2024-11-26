@@ -4,4 +4,5 @@ config.global.stubs = {
   // Isole e evite efeitos colaterais dos componentes
   CurrencySelector: true,
   CurrencyInput: true,
+  RangeInput: true,
 }
