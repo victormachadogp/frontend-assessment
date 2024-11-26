@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-const apiKey = import.meta.env.VITE_SWOP_API_KEY
-const apiUrl = import.meta.env.VITE_SWOP_API_URL
+const apiKey = '<SUA_API_KEY>'
+const apiUrl = 'https://swop.cx/rest/rates'
 
 export const fetchExchangeRates = async () => {
   try {
