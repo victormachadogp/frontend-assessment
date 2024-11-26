@@ -72,8 +72,8 @@ const resultItems = computed(() => [
   border-bottom-right-radius: 0.75rem;
 
   @media (max-width: 768px) {
-    border-top-left-radius: 0.75rem;
-    border-top-right-radius: 0.75rem;
+    border-top-left-radius: 0rem;
+    border-top-right-radius: 0rem;
   }
 }
 </style>
