@@ -1,9 +1,6 @@
 <template>
   <div class="results-panel">
     <ResultItem v-for="item in resultItems" :key="item.label" v-bind="item" />
-    <div v-if="error" class="results-panel__error">
-      {{ error }}
-    </div>
   </div>
 </template>
 
