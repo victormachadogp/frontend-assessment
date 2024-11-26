@@ -17,4 +17,11 @@ export default defineConfig({
     globals: true,
     setupFiles: ['./vitest.setup.js'],
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        api: 'modern-compiler',
+      },
+    },
+  },
 })
