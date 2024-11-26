@@ -1,13 +1,13 @@
 import axios from 'axios'
 
-const SWOP_API_KEY = 'ab82a7aab7ed4f0fa5c9627708f76ca27905b89394bc5db0cd04cea44745ffb0'
-const SWOP_API_URL = 'https://swop.cx/rest/rates'
+const apiKey = import.meta.env.VITE_SWOP_API_KEY
+const apiUrl = import.meta.env.VITE_SWOP_API_URL
 
 export const fetchExchangeRates = async () => {
   try {
-    const response = await axios.get(SWOP_API_URL, {
+    const response = await axios.get(apiUrl, {
       headers: {
-        Authorization: `ApiKey ${SWOP_API_KEY}`,
+        Authorization: `ApiKey ${apiKey}`,
         Accept: 'application/json',
       },
     })
